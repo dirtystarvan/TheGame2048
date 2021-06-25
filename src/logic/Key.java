@@ -1,3 +1,5 @@
+package logic;
+
 import java.util.Objects;
 
 public class Key {
@@ -39,7 +41,7 @@ public class Key {
 
     @Override
     public String toString() {
-        return "Key{" +
+        return "logic.Key{" +
                 "i=" + i +
                 ", j=" + j +
                 '}';

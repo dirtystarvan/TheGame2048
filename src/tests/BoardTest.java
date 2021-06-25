@@ -1,3 +1,8 @@
+package tests;
+
+import logic.Board;
+import logic.SquareBoard;
+
 import java.util.Arrays;
 import java.util.List;
 

@@ -1,20 +1,26 @@
+package logic;
+
 import java.util.*;
 
-public class SquareBoard extends Board {
-    SquareBoard(int size) {
+public class SquareBoard<V> extends Board<Key, V> {
+    public SquareBoard(int size) {
         super(size, size);
     }
 
+    /**
+     * раскладывает переданный лист значений в борду по порядку
+     * */
+
     @Override
-    public void fillBoard(List<Integer> list) {
-        Iterator item = list.iterator();
+    public void fillBoard(List<V> list) {
+        Iterator<V> item = list.iterator();
 
         for (int i = 0; i < height; i++)
             for (int j = 0; j < weight; j++)
                 if (item.hasNext())
-                    board.put(new Key(i, j), (Integer) item.next());
+                    board.put(new Key(i, j), item.next());
 
-        for (Map.Entry<Key, Integer> pair: board.entrySet())
+        for (Map.Entry<Key, V> pair: board.entrySet())
             System.out.println(pair.getKey() + " " + pair.getValue());
     }
 
@@ -24,7 +30,7 @@ public class SquareBoard extends Board {
     public List<Key> availableSpace() {
         List<Key> emptyCells = new ArrayList<>();
 
-        for (Map.Entry<Key, Integer> pair: board.entrySet())
+        for (Map.Entry<Key, V> pair: board.entrySet())
             if (pair.getValue() == null)
                 emptyCells.add(pair.getKey());
 
@@ -34,7 +40,7 @@ public class SquareBoard extends Board {
     /** Добавляем элемент {@param value} по ключу {@param key}. */
 
     @Override
-    public void addItem(Key key, Integer value) {
+    public void addItem(Key key, V value) {
         board.put(key, value);
     }
 
@@ -43,7 +49,7 @@ public class SquareBoard extends Board {
     public Key getKey(int i, int j) {
         Key current;
 
-        for (Map.Entry<Key, Integer> pair: board.entrySet()) {
+        for (Map.Entry<Key, V> pair: board.entrySet()) {
             current = pair.getKey();
 
             if (current.getI() == i && current.getJ() == j)
@@ -56,7 +62,7 @@ public class SquareBoard extends Board {
     /** Получаем значение по {@param key} */
 
     @Override
-    public Integer getValue(Key key) {
+    public V getValue(Key key) {
         return board.get(key);
     }
 
@@ -67,7 +73,7 @@ public class SquareBoard extends Board {
         Key current;
         List<Key> column = new ArrayList<>();
 
-        for (Map.Entry<Key, Integer> pair: board.entrySet()) {
+        for (Map.Entry<Key, V> pair: board.entrySet()) {
             current = pair.getKey();
 
             if (current.getJ() == j)
@@ -86,7 +92,7 @@ public class SquareBoard extends Board {
         Key current;
         List<Key> row = new ArrayList<>();
 
-        for (Map.Entry<Key, Integer> pair: board.entrySet()) {
+        for (Map.Entry<Key, V> pair: board.entrySet()) {
             current = pair.getKey();
 
             if (current.getI() == i)
@@ -101,15 +107,15 @@ public class SquareBoard extends Board {
     /** Проверяем, есть ли такое значение на поле. */
 
     @Override
-    public boolean hasValue(Integer value) {
+    public boolean hasValue(V value) {
         return board.containsValue(value);
     }
 
     /** Получаем строку значений по строке ключей. */
 
     @Override
-    public List<Integer> getValues(List<Key> keys) {
-        List<Integer> result = new ArrayList<>();
+    public List<V> getValues(List<Key> keys) {
+        List<V> result = new ArrayList<>();
 
         for (Key item: keys)
             result.add(board.get(item));

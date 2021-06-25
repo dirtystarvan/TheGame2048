@@ -1,10 +1,12 @@
+package logic;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
 public class GameHelper {
-    public List<Integer> moveAndMergeEqual(List<Integer> list) {
+    public static List<Integer> moveAndMergeEqual(List<Integer> list) {
         if (list.isEmpty())
             return list;
 
