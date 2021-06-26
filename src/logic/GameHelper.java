@@ -34,23 +34,30 @@ public class GameHelper {
             if (nextFound)
                 if (first.equals(second)) {
                     result.add(first + second);
+                    j++;
                 }
                 else {
                     result.add(first);
-                    result.add(second);
+                    //result.add(second);
                 }
             else {
                 result.add(first);
             }
 
-            i = j;
+            i = j - 1;
             nextFound = false;
         }
+
+        System.out.print("Before nulls: ");
+        System.out.println(result);
 
         int additional = list.size() - result.size();
 
         for (int k = 0; k < additional; k++)
             result.add(null);
+
+        System.out.print("After nulls: ");
+        System.out.println(result);
 
         return result;
     }

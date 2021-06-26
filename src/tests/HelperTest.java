@@ -13,6 +13,8 @@ public class HelperTest {
 		//helper.moveAndMergeEqual(Arrays.asList(1, 2, null, 3));
 
 		assertEquals(helper.moveAndMergeEqual(Arrays.asList(1, 2, null, 3)), Arrays.asList(1, 2, 3, null));
+		assertEquals(helper.moveAndMergeEqual(Arrays.asList(2, 16, 16, 2)), Arrays.asList(2, 32, 2, null));
+		assertEquals(helper.moveAndMergeEqual(Arrays.asList(2, 8, 8, null)), Arrays.asList(2, 16, null, null));
 		assertEquals(helper.moveAndMergeEqual(Arrays.asList(2, 2, null, 3)), Arrays.asList(4, 3, null, null));
 		assertEquals(helper.moveAndMergeEqual(Arrays.asList(2, 2, 4, 4)), Arrays.asList(4, 8, null, null));
 		assertEquals(helper.moveAndMergeEqual(Arrays.asList(2, 2, 2, 3)), Arrays.asList(4, 2, 3, null));

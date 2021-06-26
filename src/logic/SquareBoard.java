@@ -13,6 +13,9 @@ public class SquareBoard<V> extends Board<Key, V> {
 
     @Override
     public void fillBoard(List<V> list) {
+        if (list.size() > weight)
+            throw new RuntimeException("Initialization error");
+
         Iterator<V> item = list.iterator();
 
         for (int i = 0; i < height; i++)

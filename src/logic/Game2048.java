@@ -21,8 +21,12 @@ public class Game2048 implements Game {
             for (int j = 0; j < GAME_SIZE; j++)
                 board.addItem(new Key(i, j), null);
 
-        for (int i = 0; i < 2; i++)
-            addItem();
+        try {
+            for (int i = 0; i < 2; i++)
+                addItem();
+        } catch (NotEnoughSpace e) {
+
+        }
     }
 
     private boolean hasEqualNeighbors(List<Integer> values) {
@@ -122,7 +126,11 @@ public class Game2048 implements Game {
 //        System.out.println();
 
         if (!board.availableSpace().isEmpty())
-            addItem();
+            try {
+                addItem();
+            } catch (NotEnoughSpace e) {
+                result = false;
+            }
         else
             result = false;
 
@@ -140,11 +148,14 @@ public class Game2048 implements Game {
      */
 
     @Override
-    public void addItem() {
+    public void addItem() throws NotEnoughSpace {
 //        int x = (int)(GAME_SIZE * Math.random());
 //        int y = (int)(GAME_SIZE * Math.random());
         Random random = new Random();
         List<Key> emptyCells = board.availableSpace();
+
+        if (emptyCells.isEmpty())
+            throw new NotEnoughSpace();
 
         int seed = (int)(101 * Math.random());
         int value = (seed <= 10) ? 4 : 2;
@@ -168,6 +179,6 @@ public class Game2048 implements Game {
 
     @Override
     public boolean hasWin() {
-        return board.board.containsValue(2048);
+        return board.board.containsValue(64);
     }
 }
