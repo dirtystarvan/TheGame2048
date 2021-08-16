@@ -1,4 +1,4 @@
-package logic;
+package ru.ac1dtest;
 
 import java.util.Objects;
 
@@ -41,7 +41,7 @@ public class Key {
 
     @Override
     public String toString() {
-        return "logic.Key{" +
+        return "ru.ac1dtest.Key{" +
                 "i=" + i +
                 ", j=" + j +
                 '}';

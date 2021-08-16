@@ -1,4 +1,6 @@
-package logic;
+package ru.ac1dtest;
+
+import ru.ac1dtest.*;
 
 import javax.swing.*;
 import java.awt.*;

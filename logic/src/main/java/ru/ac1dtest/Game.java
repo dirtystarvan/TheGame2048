@@ -1,4 +1,4 @@
-package logic;
+package ru.ac1dtest;
 
 public interface Game {
     void init();

@@ -1,12 +1,10 @@
 package tests;
 
-import logic.Board;
-import logic.Key;
-import logic.SquareBoard;
+import ru.ac1dtest.Board;
+import ru.ac1dtest.Key;
+import ru.ac1dtest.SquareBoard;
 
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.LinkedList;
 
 
 public class TestClass {
@@ -14,7 +12,7 @@ public class TestClass {
         Board<Key, Integer> board = new SquareBoard<Integer>(2);
 
         board.fillBoard(Arrays.asList(1,2,3,null));
-//        logic.Game game2048 = new logic.Game2048(board);
+//        ru.ac1dtest.Game game2048 = new ru.ac1dtest.Game2048(board);
 //        System.out.println(game2048.canMove());
 
     }

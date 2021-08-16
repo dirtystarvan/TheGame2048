@@ -1,6 +1,6 @@
 package tests;
 
-import logic.*;
+import ru.ac1dtest.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -28,7 +28,7 @@ public class Game2048Test {
 //		};
 
 		Board<Key, Integer> b = game.getGameBoard();
-		if (!b.availableSpace().isEmpty()) throw new RuntimeException("logic.Game board must be empty before initialize");
+		if (!b.availableSpace().isEmpty()) throw new RuntimeException("ru.ac1dtest.Game board must be empty before initialize");
 		b.fillBoard(Arrays.asList(2, null, null, 8, 2, 2, 8, 8, 2, null, 2, 2, 4, 2, 4, 2048));
 		if (!game.hasWin()) throw new RuntimeException("hasWin not work =(");
 		game.move(Direction.LEFT);

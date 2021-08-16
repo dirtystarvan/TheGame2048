@@ -1,6 +1,6 @@
 package tests;
 
-import logic.GameHelper;
+import ru.ac1dtest.GameHelper;
 
 import java.util.Arrays;
 import java.util.List;

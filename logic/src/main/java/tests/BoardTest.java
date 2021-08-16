@@ -1,7 +1,7 @@
 package tests;
 
-import logic.Board;
-import logic.SquareBoard;
+import ru.ac1dtest.Board;
+import ru.ac1dtest.SquareBoard;
 
 import java.util.Arrays;
 import java.util.List;
